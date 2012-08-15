@@ -698,6 +698,10 @@ static FBSession *g_activeSession = nil;
                        FBAppAuth:(BOOL)tryFBAppAuth
                       safariAuth:(BOOL)trySafariAuth 
                         fallback:(BOOL)tryFallback {
+    // Always use inline login
+    tryFBAppAuth = NO;
+    trySafariAuth = NO;
+  
     // setup parameters for either the safari or inline login
     NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    self.appID, FBLoginUXClientID,
